@@ -48,6 +48,12 @@ jobs:
           ln -s /mnt/openwrt/feeds ./feeds
           ln -s /mnt/openwrt/bin ./bin
           df -h
+          
+      - name: 自定义插件主题。
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
 
       - name: Update feeds
         run: |
@@ -157,6 +163,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          CONFIG_PACKAGE_luci-app-sfe=y
           EOF
 
           # LuCI主题:
